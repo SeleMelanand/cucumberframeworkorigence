@@ -48,7 +48,7 @@ public class loginStepDefiniton {
 		driver.findElement(By.id("ctl00_cphContent_LoginButton")).click();;
 	}
 	
-	@Then("Verfiy loginname")
+	@Then("Verify loginname")
 	public void Verfiyloginname() {
 		String validationmessage = driver.findElement(By.xpath("//div[@id='NewHeader1']//tr/td[4]//td[3]//tr[1]/td")).getText();
 		Assert.assertEquals(validationmessage, "Michael Farris");
@@ -59,7 +59,7 @@ public class loginStepDefiniton {
 		driver.findElement(By.id("ctl00_cphContent_Password")).sendKeys("welcome@12345");
 	}
 	
-	@Then("Verfiy validation message")
+	@Then("Verify validation message")
 	public void validationmessage() {
 		String validationmessage = driver.findElement(By.xpath("//div[@id='ctl00_cphContent_pnlSignOn']//table//table//tr[9]//span")).getText();
 		Assert.assertEquals(validationmessage, "Invalid username/password");

@@ -6,7 +6,7 @@ Scenario: Positive testcase for login
 	And Enter username
 	And Enter passcode
 	And Click login 
-	Then Verfiy loginname
+	Then Verify loginname
 	
 Scenario: Negative testcase for login
 	Given Open the browser using the URL 
@@ -14,4 +14,4 @@ Scenario: Negative testcase for login
 	And Enter username
 	And Enter invalid passcode
 	And Click login 
-	Then Verfiy validation message
+	Then Verify validation message
