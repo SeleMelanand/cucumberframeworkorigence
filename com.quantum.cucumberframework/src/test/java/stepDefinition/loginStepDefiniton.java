@@ -59,7 +59,7 @@ public class loginStepDefiniton {
 		driver.findElement(By.id("ctl00_cphContent_Password")).sendKeys("welcome@12345");
 	}
 	
-	@Then("Verify validation message")
+	//@Then("Verify validation message")
 	public void validationmessage() {
 		String validationmessage = driver.findElement(By.xpath("//div[@id='ctl00_cphContent_pnlSignOn']//table//table//tr[9]//span")).getText();
 		Assert.assertEquals(validationmessage, "Invalid username/password");
