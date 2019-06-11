@@ -14,4 +14,4 @@ Scenario: Negative testcase for login
 	And Enter uname NYB\MichaelFarris
 	And Enter password DelForMayor18123!
 	And Click login 
-	Then Verify validation message "Invalid username/password"
+	Then Verify validation message Invalid username/password
