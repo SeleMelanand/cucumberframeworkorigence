@@ -33,14 +33,9 @@ public class loginStepDefiniton {
 		
 	}
 	
-	@And("Enter username")
-	public void Enterusername() {
-		driver.findElement(By.id("ctl00_cphContent_UserName")).sendKeys("NYB\\MichaelFarris");
-	}
-	
-	@And("Enter passcode")
-	public void Enterpasscode() {
-		driver.findElement(By.id("ctl00_cphContent_Password")).sendKeys("DelForMayor18!");
+	@And("Enter \"(.*)\"")
+	public void Enterusername(String uname) {
+		driver.findElement(By.id("ctl00_cphContent_UserName")).sendKeys(uname);
 	}
 	
 	@And("Click login")
@@ -54,15 +49,10 @@ public class loginStepDefiniton {
 		Assert.assertEquals(validationmessage, "Michael Farris");
 	}
 	
-	@And("Enter invalid passcode")
-	public void invalidpasscode() {
-		driver.findElement(By.id("ctl00_cphContent_Password")).sendKeys("welcome@12345");
-	}
-	
-	//@Then("Verify validation message")
-	public void validationmessage() {
+	@Then("Verify validation message \"(.*)\"")
+	public void validationmessage(String message) {
 		String validationmessage = driver.findElement(By.xpath("//div[@id='ctl00_cphContent_pnlSignOn']//table//table//tr[9]//span")).getText();
-		Assert.assertEquals(validationmessage, "Invalid username/password");
+		Assert.assertEquals(validationmessage, message);
 	}
 
 }
