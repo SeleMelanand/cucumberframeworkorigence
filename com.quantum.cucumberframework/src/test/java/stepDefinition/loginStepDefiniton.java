@@ -48,10 +48,10 @@ public class loginStepDefiniton {
 		driver.findElement(By.id("ctl00_cphContent_LoginButton")).click();;
 	}
 	
-	@Then("Verify loginname")
-	public void Verfiyloginname() {
+	@Then("Verify loginname (.*)")
+	public void Verfiyloginname(String loginuser) {
 		String validationmessage = driver.findElement(By.xpath("//div[@id='NewHeader1']//tr/td[4]//td[3]//tr[1]/td")).getText();
-		Assert.assertEquals(validationmessage, "Michael Farris");
+		Assert.assertEquals(validationmessage, loginuser);
 	}
 	
 	@Then("Verify validation message (.*)")
