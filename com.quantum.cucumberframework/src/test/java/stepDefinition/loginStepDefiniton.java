@@ -33,9 +33,14 @@ public class loginStepDefiniton {
 		
 	}
 	
-	@And("Enter \"(.*)\"")
+	@And("Enter uname (.*)")
 	public void Enterusername(String uname) {
 		driver.findElement(By.id("ctl00_cphContent_UserName")).sendKeys(uname);
+	}
+	
+	@And("Enter password (.*)")
+	public void Enterpassword(String passcode) {
+		driver.findElement(By.id("ctl00_cphContent_Password")).sendKeys(passcode);
 	}
 	
 	@And("Click login")
@@ -49,7 +54,7 @@ public class loginStepDefiniton {
 		Assert.assertEquals(validationmessage, "Michael Farris");
 	}
 	
-	@Then("Verify validation message \"(.*)\"")
+	@Then("Verify validation message (.*)")
 	public void validationmessage(String message) {
 		String validationmessage = driver.findElement(By.xpath("//div[@id='ctl00_cphContent_pnlSignOn']//table//table//tr[9]//span")).getText();
 		Assert.assertEquals(validationmessage, message);
