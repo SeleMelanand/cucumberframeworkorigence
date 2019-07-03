@@ -11,7 +11,7 @@ import cucumber.api.junit.Cucumber;
 		monochrome=true,//to display the console putput in a proper readable format 
 		dryRun=false,// by default iSt will be false.  set as true : without execution, it will check mapping is proper between stepdefiniton and feature file
 					//strict=true //execute the testcase but it will fail the test method as Implement me 
-		tags = {"~@Datadriventest","~@Negativetest","@Smoketest"}
+		tags = {"~@Datadriventest","~@Negativetest","~@Smoketest","@EndtoEndtest"}
 		)
 
 public class TestRunner {

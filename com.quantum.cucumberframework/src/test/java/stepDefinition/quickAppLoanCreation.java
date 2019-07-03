@@ -107,8 +107,13 @@ public class quickAppLoanCreation {
 	public void printloannumber() {
 		
 		String loannumbertext = driver.findElement(By.xpath("//div[@id='div1003Header']//td[1]")).getText();
-		String loannum = loannumbertext.substring(27,47);
-		System.out.println("Generated loan number is : "+ loannum);
+		String [] loannumbertextarr = loannumbertext.split("-");
+		String loanfileid = loannumbertextarr[1];
+		String loannumber = loannumbertextarr[2];
+		
+		//String loannum = loannumbertext.substring(27,47);
+		System.out.println("Generated loan file id is : "+ loanfileid);
+		System.out.println("Generated loan number is : "+ loannumber);
 		
 	}
 }
