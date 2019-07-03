@@ -62,7 +62,7 @@ public class quickAppLoanCreation {
 		
 		WebElement estficoscore = driver.findElement(By.id("PrimaryBorrower_EstimatedFICOScore_EstimatedFICOScore"));
 		Select estficoscoredd = new Select(estficoscore);
-		estficoscoredd.selectByVisibleText("Very Good: 750 - 799");
+		estficoscoredd.selectByIndex(2);
 		
 		driver.findElement(By.xpath("(//input[@id='PrimaryBorrower_FirstTimeHomeBuyer_FirstTimeHomeBuyer'])[2]/..")).click();
 				
