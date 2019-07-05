@@ -1,6 +1,6 @@
 Feature: login Origance application
 
-@Smoketest
+@smoketest
 Scenario: Positive testcase for login
 	Given Open the browser using the URL 
 	When title of login page is Login to Application
@@ -28,8 +28,6 @@ Scenario Outline: testcase for login using different username and password
 	Then Verify loginname <verifyname>
 	
 Examples: 
-|username|password|verifyname|
-|NYB\Clientadmin|MortgageLOS@147|NYB m ClientAdmin|
-|NYB\MichaelFarris|DelForMayor18!|Michael Farris|
-
-	
+|username			|password		|verifyname			|
+|NYB\MichaelFarris	|DelForMayor18!	|Michael Farris		|
+|NYB\Processor		|DelForMayor18!	|NYB Mi Processor	|
