@@ -18,16 +18,19 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import hooks.HooksDefinition;
 
 public class quickAppLoanCreation {
-	WebDriver driver;
-
+	public WebDriver driver;
+	
 	@Given("login as loanofficer")
 	public void loginasloanofficer() {
 		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		
+		
 		driver.get("https://quantumwebdev4.dev.apps.pcf.nonprod.cudirect.com");
 		String titlename = driver.getTitle();
 		System.out.println("title name is : " + titlename);
@@ -62,7 +65,7 @@ public class quickAppLoanCreation {
 		
 		WebElement estficoscore = driver.findElement(By.id("PrimaryBorrower_EstimatedFICOScore_EstimatedFICOScore"));
 		Select estficoscoredd = new Select(estficoscore);
-		estficoscoredd.selectByVisibleText("Very Good: 750 - 799");
+		estficoscoredd.selectByIndex(2);
 		
 		driver.findElement(By.xpath("(//input[@id='PrimaryBorrower_FirstTimeHomeBuyer_FirstTimeHomeBuyer'])[2]/..")).click();
 				
@@ -107,8 +110,12 @@ public class quickAppLoanCreation {
 	public void printloannumber() {
 		
 		String loannumbertext = driver.findElement(By.xpath("//div[@id='div1003Header']//td[1]")).getText();
-		String loannum = loannumbertext.substring(27,47);
-		System.out.println("Generated loan number is : "+ loannum);
+		String [] loannumbertextarr = loannumbertext.split("-");
+		String loanfileid = loannumbertextarr[1];
+		String loannumber = loannumbertextarr[2];
+		
+		System.out.println("Generated loan file id is : "+ loanfileid);
+		System.out.println("Generated loan number is : "+ loannumber);
 		
 	}
 }
