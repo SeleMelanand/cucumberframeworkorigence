@@ -1,27 +1,27 @@
 package hooks;
 
-import java.io.IOException;
-
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import wrappers.Wrappersmethods;
+import wrappers.Reporterwrapper;
 
-public class HooksDefinition extends Wrappersmethods {
+public class HooksDefinition extends Reporterwrapper {
 
 	@Before
 	public void chromebrowserlaunch() throws Exception {
 		loadconfigdata();
 		launchchrome();
+		htmlreportgenerator();
+		author = "Anand. S";
+		category = "End to end flow";
 		System.out.println("Before method executed successfuly");
 
 	}
 
 	@After
 	public void applicationlogout() {
-		//screenshot needs to be taken
-		
 		logout();
-		System.out.println("After method executed successfuly");
+		reportclose();
+
 	}
 	
 
